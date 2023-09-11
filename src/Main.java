@@ -6,6 +6,14 @@ public class Main {
         System.out.print("What is your phrase?");
 
         String phrase = reader.readLine();
-        System.out.println(phrase);
+        String secret = "";
+        for (int i = 0; i < phrase.length(); i++) {
+        if (phrase.charAt(i) == ' ') {
+            secret =  secret + ' ';
+        } else {
+            secret = secret + '*';
+        }
+        }
+        System.out.println(secret);
     }
 }
