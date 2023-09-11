@@ -11,19 +11,19 @@ public class Main {
         System.out.print("Guess a letter: ");
 
         String guess = reader.readLine();
-        String holder = "";
+        StringBuilder holder = new StringBuilder();
         boolean correctCheck = false;
 
         for (int i = 0; i < phrase.length(); i++) {
             if(secret.charAt(i) == ' ') {
-                holder = holder + ' ';
+                holder.append(' ');
             } else if(secret.charAt(i) != '*') {
-                holder = holder + secret.charAt(i);
+                holder.append(secret.charAt(i));
             } else if (phrase.charAt(i) == guess.charAt(0)) {
-                holder = holder + guess;
+                holder.append(guess);
                 correctCheck = true;
             } else {
-                holder = holder + '*';
+                holder.append('*');
             }
         }
 
@@ -31,7 +31,7 @@ public class Main {
             incorrectCount += 1;
         }
 
-        secret = holder;
+        secret = holder.toString();
         if(secret.equals(phrase)) {
             System.out.println("the answer was " + phrase);
             System.out.println("You got it!");
@@ -46,15 +46,15 @@ public class Main {
         System.out.print("What is your phrase?");
 
         String phrase = reader.readLine();
-        String secret = "";
+        StringBuilder secret = new StringBuilder();
         for (int i = 0; i < phrase.length(); i++) {
         if (phrase.charAt(i) == ' ') {
-            secret =  secret + ' ';
+            secret.append(' ');
         } else {
-            secret = secret + '*';
+            secret.append('*');
         }
         }
         int incorrectCount = 0;
-        gameLoop(phrase, secret, incorrectCount);
+        gameLoop(phrase, secret.toString(), incorrectCount);
     }
 }
