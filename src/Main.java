@@ -37,13 +37,14 @@ public class Main {
             System.out.println("You got it!");
         } else if (incorrectCount == 5){
             System.out.println("Too many wrong guesses, you lose");
+            System.out.println("the answer was " + phrase);
         } else {
             gameLoop(phrase, secret, incorrectCount);
         }
     }
     public static void main(String[] args) throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("What is your phrase?");
+        System.out.print("What is your phrase? ");
 
         String phrase = reader.readLine();
         StringBuilder secret = new StringBuilder();
